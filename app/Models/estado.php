@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class estado extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'id';
+    protected $fillable = ['name', 'id'];
 }

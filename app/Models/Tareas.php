@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tareas extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name','description','status_id','categoria_id'];
 }
