@@ -5,6 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::controller(loginController::class)->group(function(){
-    Route::get('/','hola');
+    Route::get('/','Login');
 });
 
