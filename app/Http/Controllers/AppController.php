@@ -10,21 +10,37 @@ class AppController extends Controller
 {
     public function getAllTareas(){
         $consulta = Tareas::all();
-        return $consulta;
+        $categorias = Categorias::all();
+
+        return view('Tareas.Tareas')
+        ->with('tareas',$consulta)
+        ->with('categorias',$categorias)
+        ->with('tarea',null);
+        ;
+
     }
 
     public function getTarea($id){
-        $consulta = Tareas::find($id);
-        return $consulta;
+        $consulta = Tareas::all();
+        $categorias = Categorias::all();
+        $tarea = Tareas::findOrFail($id);
+
+        return view('Tareas.Tareas')
+        ->with('tareas',$consulta)
+        ->with('categorias',$categorias)
+        ->with('tarea',$tarea);
     }
     
     public function newTarea(Request $request){
         $new = new Tareas();
-        $new->name = $request -> name;;
+        $new->name = $request -> name;
         $new->description = $request -> description;
         $new->status_id = 1;
         $new->categoria_id = $request -> categoria; 
         $new->save();
+
+        return redirect(route('tareas'))
+        ->with('mensaje',"¡Se dio de alta la tarea exitosamente !");
     }
 
     public function editTarea(Request $request, $id){
@@ -34,10 +50,19 @@ class AppController extends Controller
         $update->status_id = 1;
         $update->categoria_id = $request -> categoria; 
         $update->save();
+
+        return redirect(route('tareas'))
+        ->with('mensaje',"¡Se actualizo la tarea exitosamente !");
+
     }
 
     public function deleteTarea($id){
         Tareas::destroy($id);
+
+        return redirect(route('tareas'))
+        ->with('mensaje',"¡Se elimino la tarea exitosamente !");
+
+
     }
 
     public function getAllCategorias(){
@@ -73,6 +98,7 @@ class AppController extends Controller
     }
 
     public function deleteCategoria($id){
-        Categorias::destroy($id);
+
+        return redirect(route('tareas'));
     }
 }
