@@ -17,12 +17,12 @@
           <form class="mt-4" action="{{ route ('access') }}" method="POST">
           @csrf
             <div class="mb-4">
-              <label for="email" class="block text-gray-700">Email address:</label>
+              <label for="email" class="block text-gray-700">Correo:</label>
               <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500" required>
             </div>
 
             <div class="mb-4">
-              <label for="password" class="block text-gray-700">Password:</label>
+              <label for="password" class="block text-gray-700">Contraseña:</label>
               <input type="password" id="password" name="password" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500" required>
             </div>
 

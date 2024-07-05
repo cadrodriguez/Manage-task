@@ -10,7 +10,7 @@
     @if (Session::has('mensaje'))
     <center class="alert alert-success">
         {{ Session::get('mensaje') }}
-    </center>br
+    </center><br>
     @endif
     <div class="containerForm">
 
