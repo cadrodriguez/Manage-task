@@ -5,7 +5,7 @@
     <a class="btnmenu" href="{{ route('tareas') }}">
         Tareas
     </a>
-    <a class="btnmenu" href="{{ route('tareas') }}">
+    <a class="btnmenu" href="{{ route('categorias') }}">
         Categorias
     </a>
     <a type="button" href="{{ route ('logout') }}" class="btnmenu">

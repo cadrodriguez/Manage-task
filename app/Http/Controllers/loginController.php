@@ -7,14 +7,17 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-
-use function Laravel\Prompts\password;
 
 class loginController extends Controller
 {
 
     public function newUser(Request $request){
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+            'name' => 'required|min:3'
+        ]);
 
             $new = User::create([
                 'name' => $request -> name,

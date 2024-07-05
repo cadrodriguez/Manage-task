@@ -17,10 +17,10 @@ Route::view('registro',"Auth.Registro")->name('registro');
 
     Route::middleware('auth')->group(function () {
         Route::controller(AppController::class)->group(function(){
-            Route::get('categorias','getAllCategorias');
-            Route::post('alta','newCategoria');
-            Route::get('categoria/{id}','getCategoria');
-            Route::put('editar/{id}','editCategoria');
+            Route::get('categorias','getAllCategorias')->name('categorias');
+            Route::post('alta','newCategoria')->name('alta');
+            Route::get('categoria/{id}','getCategoria')->name('categoria');
+            Route::get('actualizar/{id}','editCategoria')->name('actualizar');
             Route::get('borrar/{id}','deleteCategoria');
         
             Route::get('registroTareas', 'registroTareas')->name('registroTareas');

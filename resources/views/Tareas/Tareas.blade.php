@@ -10,8 +10,8 @@
     @if (Session::has('mensaje'))
     <center class="alert alert-success">
         {{ Session::get('mensaje') }}
-</center>br
-@endif
+    </center><br>
+    @endif
     <div class="containerForm">
 
         @if($tarea)

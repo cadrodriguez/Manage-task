@@ -65,16 +65,25 @@ class AppController extends Controller
 
     }
 
+    //---------------------------------------CATEGORIAS----------------------------------
+
     public function getAllCategorias(){
 
         $consulta = Categorias::all();
 
-        return $consulta;
+        return view('Tareas.Categorias')
+        ->with('categorias',$consulta)
+        ->with('category',null);
     }
 
     public function getCategoria($id){
 
-        $consulta = Categorias::find($id);
+        $category = Categorias::find($id);
+        $consulta = Categorias::all();
+
+        return view('Tareas.Categorias')
+        ->with('categorias',$consulta)
+        ->with('category',$category);
 
         return $consulta;
     }
@@ -85,7 +94,8 @@ class AppController extends Controller
         $new->name = $request->name;
         $new->save();
 
-        return "Registro exitoso";
+        return redirect(route('categorias'))
+        ->with('mensaje',"¡Se creo la categoria exitosamente !");
     }
 
     public function editCategoria(Request $request, $id){
@@ -94,11 +104,12 @@ class AppController extends Controller
         $update->name = $request->name;
         $update->save();
 
-        return "Registro exitoso";
-    }
+        return redirect(route('categorias'))
+        ->with('mensaje',"¡Se actualizo la categoria exitosamente !");    }
 
     public function deleteCategoria($id){
 
-        return redirect(route('tareas'));
-    }
+
+        return redirect(route('categorias'))
+        ->with('mensaje',"¡Se elimino la categoria exitosamente !");    }
 }
