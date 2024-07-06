@@ -1,6 +1,7 @@
 Hola, Bienvnido al administrador de Tareas
 
 Descripción del Proyecto
+
 Se desarrollado un sistema de gestión de tareas utilizando Laravel, un framework PHP ampliamente utilizado para aplicaciones web. El sistema incluye funcionalidades para manejar tareas y categorías, permitiendo a los usuarios crear, leer, actualizar y eliminar tanto tareas como categorías. A continuación, se presenta una descripción de las principales funcionalidades desarrolladas:
 
 Funcionalidades Principales
