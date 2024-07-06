@@ -21,7 +21,7 @@ Route::view('registro',"Auth.Registro")->name('registro');
             Route::get('alta','newCategoria')->name('alta');
             Route::get('categoria/{id}','getCategoria')->name('categoria');
             Route::get('actualizar/{id}','editCategoria')->name('actualizar');
-            Route::get('borrar/{id}','deleteCategoria');
+            Route::get('borrar/{id}','deleteCategoria')->name('borrar');
         
             Route::get('registroTareas', 'registroTareas')->name('registroTareas');
             Route::get('guardar','newTarea')->name('guardar');

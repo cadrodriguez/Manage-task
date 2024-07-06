@@ -52,7 +52,7 @@
                     <td><a> {{ $categoria -> id }} </a></td>
                     <td>{{ $categoria -> name }}</td>
                     <td>
-                        <a class="button" style="background-color: red;" href="{{ route('eliminar', $categoria -> id) }}">Eliminar</a>
+                        <a class="button" style="background-color: red;" href="{{ route('borrar', $categoria -> id) }}">Eliminar</a>
                         <a class="button" style="background-color: blue;" href="{{ route('categoria', $categoria -> id) }}">Editar</a>
 
                     </td>

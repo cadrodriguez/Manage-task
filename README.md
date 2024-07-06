@@ -1,66 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Hola, Bienvnido al administrador de Tareas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Descripción del Proyecto
+Se desarrollado un sistema de gestión de tareas utilizando Laravel, un framework PHP ampliamente utilizado para aplicaciones web. El sistema incluye funcionalidades para manejar tareas y categorías, permitiendo a los usuarios crear, leer, actualizar y eliminar tanto tareas como categorías. A continuación, se presenta una descripción de las principales funcionalidades desarrolladas:
 
-## About Laravel
+Funcionalidades Principales
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Gestión de Usuarios:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Registro de nuevos usuarios con validación de datos.
+Inicio y cierre de sesión.
+Hashing de contraseñas para garantizar la seguridad.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Gestión de Tareas:
 
-## Learning Laravel
+Creación de nuevas tareas con nombre, descripción, estado y categoría asociada.
+Edición de tareas existentes.
+Eliminación de tareas.
+Visualización de todas las tareas disponibles.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Gestión de Categorías:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Creación de nuevas categorías.
+Edición de categorías existentes.
+Eliminación de categorías, asegurando que no haya tareas asociadas antes de la eliminación.
+Visualización de todas las categorías disponibles.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Interfaz de Usuario:
 
-## Laravel Sponsors
+Uso de vistas de Blade para la presentación de datos.
+Formulario de validación en el lado del servidor.
+Uso de @media queries para hacer la interfaz responsive y mejorar la experiencia en dispositivos móviles.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+Manual de Instalacion de Laravel: Se encuentra como un archivo txt
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Guía para Descargar y Correr un Proyecto Laravel desde Git
 
-## Contributing
+1. Requisitos Previos
+Asegúrate de tener los siguientes requisitos instalados en tu máquina:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Composer
+PHP (Versión recomendada: 8.1 o superior)
+Git
+Node.js y npm (Opcional, pero recomendado para manejar assets)
 
-## Code of Conduct
+2. Clonar el Repositorio
+Abre tu terminal o línea de comandos y clona el repositorio de Git:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+bash
+Copiar código
+git clone https://github.com/tu-usuario/tu-repositorio.git
 
-## Security Vulnerabilities
+3. Navegar al Directorio del Proyecto
+Ve al directorio del proyecto que acabas de clonar:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+bash
+Copiar código
+cd tu-repositorio
 
-## License
+4. Instalar Dependencias
+Usa Composer para instalar las dependencias de PHP del proyecto:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+bash
+Copiar código
+composer install
+
+5. Configurar el Archivo de Entorno
+Copia el archivo .env.example a .env:
+
+bash
+Copiar código
+cp .env.example .env
+
+Abre el archivo .env en un editor de texto y configura los parámetros necesarios, como la conexión a la base de datos.
+
+6. Generar la Clave de la Aplicación
+Genera la clave de la aplicación Laravel:
+
+bash
+Copiar código
+php artisan key:generate
+
+7. Configurar la Base de Datos
+Asegúrate de tener una base de datos configurada y actualiza las variables de entorno en el archivo .env para que se conecten a tu base de datos:
+
+env
+Copiar código
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+
+8. Migrar la Base de Datos
+Ejecuta las migraciones para crear las tablas en la base de datos:
+
+bash
+Copiar código
+php artisan migrate
+
+9. (Opcional) Compilar los Assets
+Si tu proyecto utiliza Laravel Mix para manejar assets (CSS, JS), instala las dependencias de Node.js y compílalos:
+
+bash
+Copiar código
+npm install
+npm run dev
+
+10. Iniciar el Servidor de Desarrollo
+Inicia el servidor de desarrollo de Laravel:
+
+bash
+Copiar código
+php artisan serve
+Tu proyecto ahora debería estar corriendo en http://localhost:8000.
+
+Resumen
+Clonar el repositorio.
+Navegar al directorio del proyecto.
+Instalar dependencias con Composer.
+Configurar el archivo .env.
+Generar la clave de la aplicación.
+Configurar la base de datos en el archivo .env.
+Ejecutar las migraciones.
+(Opcional) Instalar y compilar assets con npm.
+Iniciar el servidor de desarrollo.

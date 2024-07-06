@@ -1,0 +1,171 @@
+Prerrequisitos
+Antes de comenzar, asegúrate de tener lo siguiente instalado en tu sistema:
+
+Composer: El gestor de dependencias de PHP.
+PHP: Versión 8.1 o superior.
+MySQL: El servidor de base de datos MySQL.
+Node.js y npm: Para gestionar paquetes de JavaScript.
+Paso 1: Instalar Composer
+Si no tienes Composer instalado, sigue estos pasos:
+
+Descarga Composer desde composer.org.
+Sigue las instrucciones para tu sistema operativo.
+Paso 2: Crear un Nuevo Proyecto de Laravel
+Abre una terminal (cmd, PowerShell, Git Bash, etc.).
+
+Ejecuta el siguiente comando para crear un nuevo proyecto de Laravel:
+
+sh
+Copiar código
+composer create-project --prefer-dist laravel/laravel nombre_del_proyecto
+Reemplaza nombre_del_proyecto con el nombre que desees para tu proyecto.
+
+Navega al directorio del proyecto:
+
+sh
+Copiar código
+cd nombre_del_proyecto
+Paso 3: Instalar Tailwind CSS
+Instala Laravel Mix:
+
+sh
+Copiar código
+npm install
+Instala Tailwind CSS y sus dependencias:
+
+sh
+Copiar código
+npm install tailwindcss postcss autoprefixer
+Crea el archivo de configuración de Tailwind CSS:
+
+sh
+Copiar código
+npx tailwindcss init
+Configura Tailwind CSS en tailwind.config.js:
+
+js
+Copiar código
+module.exports = {
+  content: [
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.vue',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+Agrega Tailwind CSS a tu archivo CSS en resources/css/app.css:
+
+css
+Copiar código
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+Actualiza webpack.mix.js para compilar Tailwind CSS:
+
+js
+Copiar código
+const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+
+mix.js('resources/js/app.js', 'public/js')
+   .postCss('resources/css/app.css', 'public/css', [
+     tailwindcss('./tailwind.config.js'),
+   ]);
+Compila los assets usando Laravel Mix:
+
+sh
+Copiar código
+npm run dev
+Paso 4: Configurar la Conexión a MySQL
+Abre el archivo .env en el directorio raíz de tu proyecto Laravel.
+
+Encuentra las siguientes líneas y edítalas con los detalles de tu base de datos MySQL:
+
+env
+Copiar código
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+Asegúrate de reemplazar nombre_de_tu_base_de_datos, tu_usuario y tu_contraseña con los valores correctos para tu configuración de MySQL.
+
+Paso 5: Crear la Base de Datos
+Abre tu cliente MySQL (puede ser MySQL Workbench, phpMyAdmin, o la línea de comandos de MySQL).
+
+Crea una nueva base de datos con el nombre especificado en el archivo .env:
+
+sql
+Copiar código
+CREATE DATABASE nombre_de_tu_base_de_datos;
+Paso 6: Ejecutar Migraciones
+Laravel utiliza migraciones para gestionar la estructura de la base de datos. Para crear las tablas necesarias, ejecuta el siguiente comando en tu terminal:
+
+sh
+Copiar código
+php artisan migrate
+Este comando creará las tablas predeterminadas en tu base de datos.
+
+Paso 7: Iniciar el Servidor de Desarrollo
+Para iniciar el servidor de desarrollo y ver tu aplicación en el navegador, ejecuta:
+
+sh
+Copiar código
+php artisan serve
+Esto iniciará el servidor en http://127.0.0.1:8000.
+
+Paso 8: Verificar la Conexión a la Base de Datos
+Puedes verificar si la conexión a la base de datos es exitosa creando un controlador y una vista para mostrar los datos de una tabla.
+
+Crea un controlador:
+
+sh
+Copiar código
+php artisan make:controller TestController
+Abre el archivo app/Http/Controllers/TestController.php y agrega el siguiente código:
+
+php
+Copiar código
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class TestController extends Controller
+{
+    public function index()
+    {
+        $users = DB::table('users')->get();
+        return view('test', ['users' => $users]);
+    }
+}
+Crea una ruta en routes/web.php:
+
+php
+Copiar código
+Route::get('/test', [App\Http\Controllers\TestController::class, 'index']);
+Crea una vista en resources/views/test.blade.php y agrega el siguiente código:
+
+html
+Copiar código
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-2xl font-bold">Users</h1>
+    <ul>
+        @foreach ($users as $user)
+            <li>{{ $user->name }}</li>
+        @endforeach
+    </ul>
+</body>
+</html>
+
+Abre http://127.0.0.1:8000/test en tu navegador para ver la lista de usuarios.
